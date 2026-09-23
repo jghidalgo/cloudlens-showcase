@@ -97,7 +97,7 @@ See [Development story](docs/DEVELOPMENT_STORY.md) for the implementation narrat
 - **Category:** Commercial Potential
 - **Lane:** Startup
 - **Live application:** https://cloudlens.awsmindset.com
-- **Builder Center project:** add the published project URL here
+- **Builder Center project:** https://builder.aws.com/project/3Ji7cd14xIExsbpQGLf3qvJB1xu/cloudlens-ai-powered-aws-architecture-intelligence
 
 ## Repository scope
 
