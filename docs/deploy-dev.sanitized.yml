@@ -1,0 +1,66 @@
+name: Deploy CloudLens development
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  id-token: write
+
+jobs:
+  test-and-deploy:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v5
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v5
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install and verify
+        run: |
+          npm ci
+          npm test
+          npm run build
+          npm run build:api
+          npm run infra:compile
+
+      - name: Configure temporary AWS credentials through OIDC
+        uses: aws-actions/configure-aws-credentials@v6.2.3
+        with:
+          role-to-assume: ${{ vars.AWS_DEPLOY_ROLE_ARN }}
+          aws-region: ${{ vars.AWS_REGION }}
+          allowed-account-ids: ${{ vars.AWS_ACCOUNT_ID }}
+          role-session-name: cloudlens-${{ github.run_id }}
+
+      - name: Prove AWS identity
+        run: aws sts get-caller-identity
+
+      - name: Deploy CloudLens with AWS CDK
+        run: >-
+          npx cdk deploy CloudLens-dev
+          -c stage=dev
+          -c liveDiscovery=true
+          -c appUrl="https://cloudlens.awsmindset.com"
+          -c domainName="cloudlens.awsmindset.com"
+          -c certificateArn="${{ secrets.CERTIFICATE_ARN }}"
+          --require-approval never
+          --outputs-file cdk-outputs.json
+
+      - name: Smoke test deployed application
+        env:
+          APP_URL: https://cloudlens.awsmindset.com
+        run: node scripts/smoke-deployment.mjs
+
+      - name: Run production end-to-end tests
+        env:
+          APP_URL: https://cloudlens.awsmindset.com
+          E2E_USER_EMAIL: ${{ secrets.E2E_USER_EMAIL }}
+          E2E_USER_PASSWORD: ${{ secrets.E2E_USER_PASSWORD }}
+        run: npm run test:e2e

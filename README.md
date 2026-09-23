@@ -12,9 +12,12 @@ This is the **sanitized public showcase** for the CloudLens AWS Zero to Shipped 
 
 ## Try the live application
 
-**Public URL:** https://cloudlens.awsmindset.com
+**Public judge demo:** https://cloudlens.awsmindset.com/?demo=1  
+**Authenticated application:** https://cloudlens.awsmindset.com
 
 The application runs on AWS. Authentication is provided by Amazon Cognito. Customer accounts are connected with a customer-deployed read-only IAM role, a unique External ID, and short-lived AWS STS credentials. Users never paste long-lived AWS access keys into CloudLens.
+
+The judge demo is intentionally backed by synthetic data so automated and human reviewers can inspect the product without receiving customer credentials. It does not bypass authentication for live AWS inventory.
 
 ## What CloudLens ships
 
@@ -97,6 +100,7 @@ See [Development story](docs/DEVELOPMENT_STORY.md) for the implementation narrat
 - **Category:** Commercial Potential
 - **Lane:** Startup
 - **Live application:** https://cloudlens.awsmindset.com
+- **Public judge demo:** https://cloudlens.awsmindset.com/?demo=1
 - **Builder Center project:** https://builder.aws.com/project/3Ji7cd14xIExsbpQGLf3qvJB1xu/cloudlens-ai-powered-aws-architecture-intelligence
 
 ## Repository scope

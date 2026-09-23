@@ -27,6 +27,23 @@ The agent helped perform and verify these AWS-connected tasks during development
 9. Configured Stripe webhook delivery and verified the application lifecycle.
 10. Built, deployed, and browser-tested the public application on AWS.
 
+## Verifiable deployment record
+
+The public judge-demo change was committed as `dd37f48` and deployed by GitHub Actions run `#108` on September 22, 2026. The workflow completed successfully in 3 minutes 37 seconds and reported:
+
+- 29 passing test files
+- 84 passing tests
+- Successful AWS CDK deployment
+- AWS data mode enabled
+- Successful deployment smoke test
+- 4 passing production Playwright tests
+
+The production URL was then verified without authentication at:
+
+https://cloudlens.awsmindset.com/?demo=1
+
+The sanitized workflow structure used for that deployment is published at [deploy-dev.sanitized.yml](deploy-dev.sanitized.yml). Account IDs, role ARNs, certificate identifiers, administrator email addresses, and secret names have been replaced with placeholders.
+
 ## Reviewer-safe proof checklist
 
 Screenshots or recordings supplied with the submission should show:
