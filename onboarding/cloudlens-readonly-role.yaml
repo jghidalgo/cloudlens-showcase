@@ -1,0 +1,48 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Description: Generic read-only cross-account role for CloudLens discovery
+
+Parameters:
+  CloudLensCollectorRoleArn:
+    Type: String
+    Description: IAM role ARN shown by the CloudLens onboarding workflow
+  ExternalId:
+    Type: String
+    MinLength: 16
+    NoEcho: true
+    Description: Unique External ID generated for this CloudLens connection
+
+Resources:
+  CloudLensReadOnlyRole:
+    Type: AWS::IAM::Role
+    Properties:
+      RoleName: CloudLensReadOnlyRole
+      MaxSessionDuration: 3600
+      AssumeRolePolicyDocument:
+        Version: '2012-10-17'
+        Statement:
+          - Effect: Allow
+            Principal:
+              AWS: !Ref CloudLensCollectorRoleArn
+            Action: sts:AssumeRole
+            Condition:
+              StringEquals:
+                sts:ExternalId: !Ref ExternalId
+      ManagedPolicyArns:
+        - arn:aws:iam::aws:policy/ReadOnlyAccess
+      Policies:
+        - PolicyName: CloudLensCostAndOrganizationReadOnly
+          PolicyDocument:
+            Version: '2012-10-17'
+            Statement:
+              - Effect: Allow
+                Action:
+                  - ce:GetCostAndUsage
+                  - ce:GetCostForecast
+                  - organizations:ListAccounts
+                  - organizations:DescribeOrganization
+                Resource: '*'
+
+Outputs:
+  RoleArn:
+    Description: Enter this role ARN in CloudLens
+    Value: !GetAtt CloudLensReadOnlyRole.Arn
