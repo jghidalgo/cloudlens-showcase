@@ -1,0 +1,89 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="675" viewBox="0 0 1200 675" role="img" aria-labelledby="title desc">
+  <title id="title">CloudLens coding agent to AWS deployment evidence</title>
+  <desc id="desc">A reviewer-safe proof board showing the coding agent workflow, GitHub Actions OIDC federation, AWS deployment role, successful CDK deployment, tests, and live application.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#07100d"/>
+      <stop offset="1" stop-color="#101914"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#12e19f"/>
+      <stop offset="1" stop-color="#63f5c6"/>
+    </linearGradient>
+    <filter id="glow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="8" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+
+  <rect width="1200" height="675" fill="url(#bg)"/>
+  <path d="M0 0H1200V5H0Z" fill="url(#accent)"/>
+  <circle cx="1085" cy="86" r="190" fill="#12e19f" opacity=".035"/>
+  <circle cx="105" cy="625" r="220" fill="#12e19f" opacity=".025"/>
+
+  <g font-family="Inter,Segoe UI,Arial,sans-serif">
+    <text x="64" y="62" fill="#12e19f" font-size="15" font-weight="700" letter-spacing="2.4">AWS ZERO TO SHIPPED · CONNECTION PROOF</text>
+    <text x="64" y="112" fill="#f4f7f5" font-size="38" font-weight="750">Coding agent connected to AWS</text>
+    <text x="64" y="143" fill="#9eaaa4" font-size="17">Sanitized evidence from the real CloudLens build and deployment workflow</text>
+
+    <g transform="translate(64 185)">
+      <rect width="316" height="278" rx="18" fill="#121b17" stroke="#2d3b34"/>
+      <rect x="18" y="18" width="96" height="26" rx="13" fill="#0b2c21"/>
+      <text x="66" y="36" fill="#12e19f" font-size="12" text-anchor="middle" font-weight="700">01 · AGENT</text>
+      <text x="22" y="82" fill="#f4f7f5" font-size="22" font-weight="700">Build and inspect</text>
+      <text x="22" y="112" fill="#aeb8b3" font-size="14">The coding agent:</text>
+      <g fill="#d9dfdc" font-size="14">
+        <circle cx="27" cy="143" r="3" fill="#12e19f"/><text x="40" y="148">synthesized the AWS CDK stack</text>
+        <circle cx="27" cy="177" r="3" fill="#12e19f"/><text x="40" y="182">diagnosed IAM and CloudFormation</text>
+        <circle cx="27" cy="211" r="3" fill="#12e19f"/><text x="40" y="216">tested the app and AWS integrations</text>
+        <circle cx="27" cy="245" r="3" fill="#12e19f"/><text x="40" y="250">pushed and monitored deployment</text>
+      </g>
+    </g>
+
+    <g transform="translate(442 185)">
+      <rect width="316" height="278" rx="18" fill="#121b17" stroke="#2d3b34"/>
+      <rect x="18" y="18" width="96" height="26" rx="13" fill="#0b2c21"/>
+      <text x="66" y="36" fill="#12e19f" font-size="12" text-anchor="middle" font-weight="700">02 · OIDC</text>
+      <text x="22" y="82" fill="#f4f7f5" font-size="22" font-weight="700">Temporary credentials</text>
+      <text x="22" y="112" fill="#aeb8b3" font-size="14">GitHub Actions requested an OIDC token.</text>
+      <rect x="22" y="137" width="272" height="72" rx="10" fill="#08110d" stroke="#26342e"/>
+      <text x="37" y="164" fill="#7d8b84" font-size="12">AWS IAM ROLE</text>
+      <text x="37" y="189" fill="#f4f7f5" font-size="14" font-weight="700">CloudLensGitHubDeployRole</text>
+      <text x="22" y="239" fill="#12e19f" font-size="14" font-weight="700">✓ No long-lived AWS access keys</text>
+    </g>
+
+    <g transform="translate(820 185)">
+      <rect width="316" height="278" rx="18" fill="#121b17" stroke="#12e19f" stroke-opacity=".5"/>
+      <rect x="18" y="18" width="96" height="26" rx="13" fill="#0b2c21"/>
+      <text x="66" y="36" fill="#12e19f" font-size="12" text-anchor="middle" font-weight="700">03 · AWS</text>
+      <text x="22" y="82" fill="#f4f7f5" font-size="22" font-weight="700">Deployment succeeded</text>
+      <text x="22" y="113" fill="#aeb8b3" font-size="14">GitHub Actions run #109</text>
+      <g transform="translate(22 137)">
+        <circle cx="20" cy="20" r="20" fill="#0b3b2b"/>
+        <path d="M11 20l6 6 12-14" fill="none" stroke="#12e19f" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+        <text x="54" y="18" fill="#f4f7f5" font-size="16" font-weight="700">Success · 4m 11s</text>
+        <text x="54" y="39" fill="#9eaaa4" font-size="12">Commit 98ff4ef</text>
+      </g>
+      <text x="22" y="219" fill="#d9dfdc" font-size="14">29 test files · 84 tests</text>
+      <text x="22" y="244" fill="#d9dfdc" font-size="14">AWS CDK · smoke test · Playwright</text>
+    </g>
+
+    <path d="M390 324h40" stroke="#12e19f" stroke-width="2" stroke-linecap="round" opacity=".8"/>
+    <path d="M421 316l9 8-9 8" fill="none" stroke="#12e19f" stroke-width="2"/>
+    <path d="M768 324h40" stroke="#12e19f" stroke-width="2" stroke-linecap="round" opacity=".8"/>
+    <path d="M799 316l9 8-9 8" fill="none" stroke="#12e19f" stroke-width="2"/>
+
+    <g transform="translate(64 500)">
+      <rect width="1072" height="112" rx="16" fill="#0a120f" stroke="#26342e"/>
+      <text x="24" y="31" fill="#7d8b84" font-size="12" font-weight="700" letter-spacing="1.5">LIVE RESULT</text>
+      <text x="24" y="63" fill="#f4f7f5" font-size="22" font-weight="700">cloudlens.awsmindset.com/?demo=1</text>
+      <text x="24" y="88" fill="#9eaaa4" font-size="13">Full public showcase deployed on AWS with synthetic reviewer-safe data</text>
+      <rect x="819" y="25" width="229" height="62" rx="12" fill="#0b2c21" stroke="#12e19f" stroke-opacity=".45"/>
+      <text x="839" y="51" fill="#9eaaa4" font-size="12">VERIFIABLE ARTIFACT</text>
+      <text x="839" y="74" fill="#12e19f" font-size="14" font-weight="700">deploy-dev.sanitized.yml</text>
+    </g>
+
+    <text x="64" y="648" fill="#69766f" font-size="11">Account identifiers, tokens, External IDs, certificate identifiers, and secrets are intentionally omitted.</text>
+    <text x="1136" y="648" fill="#69766f" font-size="11" text-anchor="end">CloudLens · September 2026</text>
+  </g>
+</svg>

@@ -62,6 +62,8 @@ See [Architecture](docs/ARCHITECTURE.md) for the trust boundary, data flow, and 
 
 ## Coding-agent connection proof
 
+![Coding agent connected to AWS evidence](assets/coding-agent-aws-evidence.png)
+
 The coding agent was connected to the AWS development workflow and helped operate the real deployment, not only generate local code. The workflow included:
 
 - Synthesizing and deploying the AWS CDK stack
@@ -73,7 +75,7 @@ The coding agent was connected to the AWS development workflow and helped operat
 - Verifying Bedrock model invocation and knowledge-base synchronization
 - Testing the public CloudFront/custom-domain deployment in a browser
 
-The detailed, redacted evidence checklist is in [Coding-agent connection evidence](docs/CODING_AGENT_EVIDENCE.md).
+The detailed, redacted evidence record is in [Coding-agent connection evidence](docs/CODING_AGENT_EVIDENCE.md), alongside the reviewer-safe [OIDC deployment workflow](docs/deploy-dev.sanitized.yml).
 
 ## Security model
 

@@ -1,5 +1,7 @@
 # Coding-agent connection evidence
 
+![Coding agent connected to AWS evidence board](../assets/coding-agent-aws-evidence.png)
+
 ## Connection method
 
 The CloudLens coding agent interacted with the AWS delivery workflow through:
@@ -27,7 +29,7 @@ The agent helped perform and verify these AWS-connected tasks during development
 9. Configured Stripe webhook delivery and verified the application lifecycle.
 10. Built, deployed, and browser-tested the public application on AWS.
 
-## Verifiable deployment record
+## Verifiable deployment records
 
 The public judge-demo change was committed as `dd37f48` and deployed by GitHub Actions run `#108` on September 22, 2026. The workflow completed successfully in 3 minutes 37 seconds and reported:
 
@@ -38,19 +40,29 @@ The public judge-demo change was committed as `dd37f48` and deployed by GitHub A
 - Successful deployment smoke test
 - 4 passing production Playwright tests
 
+The complete multi-page showcase was then committed as `98ff4ef` and deployed by GitHub Actions run `#109` on September 23, 2026. The workflow completed successfully in 4 minutes 11 seconds and reported:
+
+- 29 passing test files
+- 84 passing tests
+- Successful AWS CDK deployment
+- AWS data mode enabled
+- Successful deployment smoke test
+- 4 passing production Playwright tests, with 1 intentionally skipped
+
 The production URL was then verified without authentication at:
 
 https://cloudlens.awsmindset.com/?demo=1
 
 The sanitized workflow structure used for that deployment is published at [deploy-dev.sanitized.yml](deploy-dev.sanitized.yml). Account IDs, role ARNs, certificate identifiers, administrator email addresses, and secret names have been replaced with placeholders.
 
-## Reviewer-safe proof checklist
+## Reviewer-safe visual proof
 
-Screenshots or recordings supplied with the submission should show:
+The evidence board above records the complete trust chain:
 
-- The coding agent issuing or guiding an AWS-connected deployment/inspection task.
-- The resulting AWS CloudFormation, Lambda, Cognito, Bedrock, or CloudWatch state.
-- The public CloudLens URL working after deployment.
-- Redaction of account IDs where unnecessary, request IDs, tokens, External IDs, ARNs containing sensitive naming, and all secrets.
+- The coding agent built, tested, pushed, and monitored the real AWS deployment.
+- GitHub Actions requested temporary AWS credentials using OIDC.
+- AWS IAM authorized the dedicated `CloudLensGitHubDeployRole`.
+- AWS CDK deployed the application and the workflow verified the live result.
+- The public URL exposes a synthetic-data showcase without granting access to customer infrastructure.
 
-Operational screenshots are intentionally not committed here until they have been reviewed and redacted.
+The board deliberately omits account identifiers, tokens, External IDs, certificate identifiers, request IDs, and secrets. The exact reviewer-safe workflow is independently inspectable in [deploy-dev.sanitized.yml](deploy-dev.sanitized.yml), including `id-token: write`, `aws-actions/configure-aws-credentials`, `aws sts get-caller-identity`, CDK deployment, smoke testing, and production end-to-end testing.
